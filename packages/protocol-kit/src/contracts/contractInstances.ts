@@ -2,6 +2,7 @@ import { Abi } from 'viem'
 import { DeploymentType } from '@safe-global/protocol-kit/types'
 import {
   SafeVersion,
+  SafeContract_v1_5_0_Abi,
   SafeContract_v1_3_0_Abi,
   SafeContract_v1_4_1_Abi,
   SafeContract_v1_2_0_Abi,
@@ -41,6 +42,7 @@ import SafeContract_v1_1_1 from './Safe/v1.1.1/SafeContract_v1_1_1'
 import SafeContract_v1_2_0 from './Safe/v1.2.0/SafeContract_v1_2_0'
 import SafeContract_v1_3_0 from './Safe/v1.3.0/SafeContract_v1_3_0'
 import SafeContract_v1_4_1 from './Safe/v1.4.1/SafeContract_v1_4_1'
+import SafeContract_v1_5_0 from './Safe/v1.5.0/SafeContract_v1_5_0'
 import SafeProxyFactoryContract_v1_0_0 from './SafeProxyFactory/v1.0.0/SafeProxyFactoryContract_v1_0_0'
 import SafeProxyFactoryContract_v1_1_1 from './SafeProxyFactory/v1.1.1/SafeProxyFactoryContract_v1_1_1'
 import SafeProxyFactoryContract_v1_3_0 from './SafeProxyFactory/v1.3.0/SafeProxyFactoryContract_v1_3_0'
@@ -61,6 +63,7 @@ export async function getSafeContractInstance(
   isL1SafeSingleton?: boolean,
   deploymentType?: DeploymentType
 ): Promise<
+  | SafeContract_v1_5_0
   | SafeContract_v1_4_1
   | SafeContract_v1_3_0
   | SafeContract_v1_2_0
@@ -71,6 +74,16 @@ export async function getSafeContractInstance(
   let safeContractInstance
 
   switch (safeVersion) {
+    case '1.5.0':
+      safeContractInstance = new SafeContract_v1_5_0(
+        chainId,
+        safeProvider,
+        isL1SafeSingleton,
+        contractAddress,
+        customContractAbi as SafeContract_v1_5_0_Abi,
+        deploymentType
+      )
+      break
     case '1.4.1':
       safeContractInstance = new SafeContract_v1_4_1(
         chainId,
@@ -143,6 +156,7 @@ export async function getCompatibilityFallbackHandlerContractInstance(
   let compatibilityFallbackHandlerInstance
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
       compatibilityFallbackHandlerInstance = new CompatibilityFallbackHandlerContract_v1_4_1(
         chainId,
@@ -183,6 +197,7 @@ export async function getMultiSendContractInstance(
   let multiSendContractInstance
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
       multiSendContractInstance = new MultiSendContract_v1_4_1(
         chainId,
@@ -232,6 +247,7 @@ export async function getMultiSendCallOnlyContractInstance(
   let multiSendCallOnlyContractInstance
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
       multiSendCallOnlyContractInstance = new MultiSendCallOnlyContract_v1_4_1(
         chainId,
@@ -278,6 +294,7 @@ export async function getSafeProxyFactoryContractInstance(
   let safeProxyFactoryContractInstance
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
       safeProxyFactoryContractInstance = new SafeProxyFactoryContract_v1_4_1(
         chainId,
@@ -335,6 +352,7 @@ export async function getSignMessageLibContractInstance(
   let signMessageLibContractInstance
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
       signMessageLibContractInstance = new SignMessageLibContract_v1_4_1(
         chainId,
@@ -373,6 +391,7 @@ export async function getCreateCallContractInstance(
   let createCallContractInstance
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
       createCallContractInstance = new CreateCallContract_v1_4_1(
         chainId,
@@ -414,6 +433,7 @@ export async function getSimulateTxAccessorContractInstance(
   let simulateTxAccessorContractInstance
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
       simulateTxAccessorContractInstance = new SimulateTxAccessorContract_v1_4_1(
         chainId,
@@ -451,6 +471,7 @@ export async function getSafeWebAuthnSignerFactoryContractInstance(
   const chainId = await safeProvider.getChainId()
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
     case '1.3.0':
       const safeWebAuthnSignerFactoryContractInstance =
@@ -482,6 +503,7 @@ export async function getSafeWebAuthnSharedSignerContractInstance(
   const chainId = await safeProvider.getChainId()
 
   switch (safeVersion) {
+    case '1.5.0':
     case '1.4.1':
     case '1.3.0':
       const safeWebAuthnSharedSignerContractInstance = new SafeWebAuthnSharedSignerContract_v0_2_1(

@@ -16,6 +16,7 @@ import safe_1_1_1_ContractArtifacts from './Safe/v1.1.1/gnosis_safe'
 import safe_1_2_0_ContractArtifacts from './Safe/v1.2.0/gnosis_safe'
 import safe_1_3_0_ContractArtifacts from './Safe/v1.3.0/gnosis_safe_l2'
 import safe_1_4_1_ContractArtifacts from './Safe/v1.4.1/safe_l2'
+import safe_1_5_0_ContractArtifacts from './Safe/v1.5.0/safe_l2'
 
 import safeProxyFactory_1_0_0_ContractArtifacts from './SafeProxyFactory/v1.0.0/proxy_factory'
 import safeProxyFactory_1_1_1_ContractArtifacts from './SafeProxyFactory/v1.1.1/proxy_factory'
@@ -46,6 +47,7 @@ export {
   safe_1_2_0_ContractArtifacts,
   safe_1_3_0_ContractArtifacts,
   safe_1_4_1_ContractArtifacts,
+  safe_1_5_0_ContractArtifacts,
   safeProxyFactory_1_0_0_ContractArtifacts,
   safeProxyFactory_1_1_1_ContractArtifacts,
   safeProxyFactory_1_3_0_ContractArtifacts,

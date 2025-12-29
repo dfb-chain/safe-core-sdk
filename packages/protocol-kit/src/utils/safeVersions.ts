@@ -5,6 +5,7 @@ import SafeContract_v1_1_1 from '@safe-global/protocol-kit/contracts/Safe/v1.1.1
 import SafeContract_v1_2_0 from '@safe-global/protocol-kit/contracts/Safe/v1.2.0/SafeContract_v1_2_0'
 import SafeContract_v1_3_0 from '@safe-global/protocol-kit/contracts/Safe/v1.3.0/SafeContract_v1_3_0'
 import SafeContract_v1_4_1 from '@safe-global/protocol-kit/contracts/Safe/v1.4.1/SafeContract_v1_4_1'
+import SafeContract_v1_5_0 from '@safe-global/protocol-kit/contracts/Safe/v1.5.0/SafeContract_v1_5_0'
 
 export enum SAFE_FEATURES {
   SAFE_TX_GAS_OPTIONAL = 'SAFE_TX_GAS_OPTIONAL',
@@ -43,17 +44,27 @@ export type SafeContractCompatibleWithFallbackHandler =
   | SafeContract_v1_2_0
   | SafeContract_v1_3_0
   | SafeContract_v1_4_1
+  | SafeContract_v1_5_0
 
-export type SafeContractCompatibleWithGuardManager = SafeContract_v1_3_0 | SafeContract_v1_4_1
+export type SafeContractCompatibleWithGuardManager =
+  | SafeContract_v1_3_0
+  | SafeContract_v1_4_1
+  | SafeContract_v1_5_0
 
-export type SafeContractCompatibleWithModuleManager = SafeContract_v1_3_0 | SafeContract_v1_4_1
+export type SafeContractCompatibleWithModuleManager =
+  | SafeContract_v1_3_0
+  | SafeContract_v1_4_1
+  | SafeContract_v1_5_0
 
 export type SafeContractCompatibleWithRequiredTxGas =
   | SafeContract_v1_0_0
   | SafeContract_v1_1_1
   | SafeContract_v1_2_0
 
-export type SafeContractCompatibleWithSimulateAndRevert = SafeContract_v1_3_0 | SafeContract_v1_4_1
+export type SafeContractCompatibleWithSimulateAndRevert =
+  | SafeContract_v1_3_0
+  | SafeContract_v1_4_1
+  | SafeContract_v1_5_0
 
 export async function isSafeContractCompatibleWithRequiredTxGas(
   safeContract: SafeContractImplementationType
